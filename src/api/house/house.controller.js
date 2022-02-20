@@ -22,7 +22,7 @@ const postNewHouse = async (req, res, next) => {
 
 const getAllHouses = async (req, res, next) => {
     try {
-        const housesDb = await House.find().populate('Character')
+        const housesDb = await House.find().populate('members')
         res.status(200).json(housesDb)
     } catch (error) {
         return next(setError(500, 'House failed server'))
@@ -32,7 +32,7 @@ const getAllHouses = async (req, res, next) => {
 const getHouse = async (req, res, next) => {
     try {
         const { id } = req.params
-        const housesDb = await House.findById(id).populate('Character')
+        const housesDb = await House.findById(id).populate('members')
         if (!housesDb) {
             return next(setError(404, 'Houses not found'))
         }

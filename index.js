@@ -32,7 +32,7 @@ cloudinary.config({
   }) 
 
 app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:4200'],
+    origin: ['http://localhost:3000', 'http://localhost:4200'],  /* donde está el localhost sustituir por ruta vercel  */
     credentials: true
   }))
 
